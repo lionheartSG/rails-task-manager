@@ -1,0 +1,11 @@
+<h1><%=@task.title %></h1>
+<p><%=@task.details%></p>
+<p><span><%=check_box_tag @task.title, @task.details, @task.completed %></span>This task is completed</p>
+<br>
+<%= link_to 'back', tasks_path, class: "btn btn-primary btn-sm" %>
+<%= link_to 'edit', edit_task_path, class: "btn btn-primary btn-sm" %>
+<%= link_to "delete",
+  task_path(@task),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+  class: "btn btn-danger btn-sm"
+%>
